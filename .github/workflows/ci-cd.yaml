@@ -50,7 +50,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/RenatMardanov/story_game_back/backend-prod
+          tags: ghcr.io/renatmardanov/story_game_back/backend-prod
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
@@ -60,7 +60,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/RenatMardanov/story_game_back/backend-dev
+          tags: ghcr.io/renatmardanov/story_game_back/backend-dev
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
@@ -79,7 +79,7 @@ jobs:
             echo $GHCR_PAT | docker login ghcr.io -u RenatMardanov --password-stdin &&
             cd /home/$SSH_USER/app/backend/prod &&
             docker compose down &&
-            docker pull ghcr.io/RenatMardanov/story_game_back/backend-prod:latest &&
+            docker pull ghcr.io/renatmardanov/story_game_back/backend-prod:latest &&
             docker compose up -d"
 
       - name: Deploy to server (dev)
@@ -94,7 +94,7 @@ jobs:
             echo $GHCR_PAT | docker login ghcr.io -u RenatMardanov --password-stdin &&
             cd /home/$SSH_USER/app/backend/dev &&
             docker compose down &&
-            docker pull ghcr.io/RenatMardanov/story_game_back/backend-dev:latest &&
+            docker pull ghcr.io/renatmardanov/story_game_back/backend-dev:latest &&
             docker compose up -d"
 
       - name: Clear docker
