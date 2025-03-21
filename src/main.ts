@@ -1,7 +1,6 @@
 import { NestFactory } from "@nestjs/core";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 import { AppModule } from "./app.module";
-import cookieParser from "cookie-parser";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -11,8 +10,6 @@ async function bootstrap() {
   SwaggerModule.setup("docs", app, documentFactory);
 
   // Настройка middleware
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-  app.use(cookieParser());
   app.enableCors({
     credentials: true,
     origin: ["http://localhost:5173", "https://story-game.ru/", "http://story-game.ru/"],
